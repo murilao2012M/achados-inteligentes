@@ -28,9 +28,9 @@ export function CategoryCard({ category }: { category: Category }) {
     categoryIcons[category.slug as keyof typeof categoryIcons] ?? FolderOpen;
 
   return (
-    <article className="card-surface group overflow-hidden rounded-[1.6rem]">
+    <article className="card-surface group overflow-hidden rounded-[1.6rem] border-brand-100/95">
       {hasImageUrl(category.image) ? (
-        <div className="relative h-44 w-full overflow-hidden">
+        <div className="relative h-44 w-full overflow-hidden border-b border-brand-100/70">
           <Image
             src={category.image}
             alt={category.name}
@@ -41,7 +41,7 @@ export function CategoryCard({ category }: { category: Category }) {
           />
         </div>
       ) : (
-        <div className="flex h-44 w-full items-center justify-center bg-[linear-gradient(135deg,#d8eaff,#eef6ff)] text-brand-800">
+        <div className="flex h-44 w-full items-center justify-center border-b border-brand-100/70 bg-[linear-gradient(135deg,#d8eaff,#eef6ff)] text-brand-800">
           <div className="text-center">
             <Icon className="mx-auto h-8 w-8" />
             <p className="mt-3 text-sm font-semibold">{category.name}</p>
@@ -59,7 +59,7 @@ export function CategoryCard({ category }: { category: Category }) {
         </p>
         <Link
           href={`/categorias/${category.slug}`}
-          className="inline-flex items-center gap-2 rounded-full border border-brand-200 px-4 py-2.5 text-sm font-semibold text-brand-800 hover:bg-brand-50"
+          className="secondary-cta px-4 py-2.5 text-sm font-semibold"
         >
           Explorar categoria
           <MoveRight className="h-4 w-4" />
