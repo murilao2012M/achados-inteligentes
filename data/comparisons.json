@@ -1,0 +1,24 @@
+[
+  {
+    "slug": "melhores-fones-bluetooth",
+    "title": "Melhores fones bluetooth para trabalho, treino e uso diário",
+    "description": "Compare autonomia, cancelamento de ruído e custo-benefício antes de escolher seu próximo fone.",
+    "products": [
+      "fone-bluetooth-soundmax-pro",
+      "headset-home-office-clarity-500",
+      "caixa-jbl-pocket-wave"
+    ],
+    "published": true
+  },
+  {
+    "slug": "melhores-air-fryers",
+    "title": "Melhores air fryers para cozinhas práticas",
+    "description": "Veja as diferenças entre capacidade, potência e facilidade de limpeza para acertar na compra.",
+    "products": [
+      "air-fryer-family-chef-55l",
+      "cafeteira-programavel-morning-brew",
+      "aspirador-robo-cleanpath-smart"
+    ],
+    "published": true
+  }
+]

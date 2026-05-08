@@ -1,0 +1,113 @@
+[
+  {
+    "title": "Como escolher um fone bluetooth para trabalhar e estudar",
+    "slug": "como-escolher-fone-bluetooth",
+    "category": "Tecnologia",
+    "excerpt": "Descubra o que realmente importa em autonomia, conforto e microfone antes de comprar.",
+    "image": "https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=1200&q=80",
+    "seoTitle": "Como escolher um fone bluetooth em 2026",
+    "seoDescription": "Guia prático para entender bateria, conforto, cancelamento de ruído e custo-benefício na hora de escolher um fone bluetooth.",
+    "publishedAt": "2026-05-01",
+    "faq": [
+      {
+        "question": "Qual a diferença entre headset e fone bluetooth?",
+        "answer": "Headsets costumam priorizar chamadas e microfone, enquanto fones bluetooth podem focar mais em música, mobilidade e cancelamento de ruído."
+      },
+      {
+        "question": "Quanto tempo de bateria é considerado bom?",
+        "answer": "Para uso diário, algo entre 20 e 35 horas já atende bem a maioria dos perfis."
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Comece pelo uso principal",
+        "content": [
+          "Antes de comprar, vale definir se o foco é trabalho, estudo, treino ou lazer. Isso muda bastante o peso do microfone, da autonomia e do conforto.",
+          "Quem faz reuniões frequentes pode priorizar clareza na voz. Já quem usa por horas seguidas normalmente se beneficia de hastes mais leves e almofadas respiráveis."
+        ]
+      },
+      {
+        "heading": "Observe conforto e conectividade",
+        "content": [
+          "Modelos com conexão multiponto ajudam bastante na rotina entre notebook e celular.",
+          "Também vale conferir se o encaixe é seguro, especialmente para quem alterna entre uso em casa e deslocamentos."
+        ]
+      }
+    ],
+    "recommendedProductSlugs": ["fone-bluetooth-soundmax-pro", "headset-home-office-clarity-500"]
+  },
+  {
+    "title": "Os melhores itens para deixar a cozinha mais prática",
+    "slug": "melhores-itens-para-cozinha-pratica",
+    "category": "Casa e Cozinha",
+    "excerpt": "Uma seleção de eletros e acessórios que ajudam a poupar tempo no dia a dia.",
+    "image": "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80",
+    "seoTitle": "Melhores itens para cozinha prática e funcional",
+    "seoDescription": "Veja produtos que ajudam a organizar a rotina da cozinha com mais rapidez e eficiência.",
+    "publishedAt": "2026-04-25",
+    "faq": [
+      {
+        "question": "Vale a pena investir em eletro portátil?",
+        "answer": "Sim, quando ele resolve tarefas recorrentes e economiza tempo com consistência na rotina."
+      },
+      {
+        "question": "Como comparar capacidade de air fryer?",
+        "answer": "Considere número de pessoas na casa, tipos de receita e espaço disponível na bancada."
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Praticidade é o que mais pesa",
+        "content": [
+          "Na cozinha, um bom produto não precisa ser o mais caro. O mais importante costuma ser a facilidade de uso, limpeza e frequência com que ele realmente será utilizado.",
+          "Air fryers e cafeteiras programáveis são exemplos de produtos que costumam gerar valor logo nas primeiras semanas."
+        ]
+      },
+      {
+        "heading": "Evite compras por impulso",
+        "content": [
+          "Antes de fechar a compra, vale medir bancada, armários e pensar na rotina real da casa.",
+          "Quando o produto encaixa no dia a dia, a chance de uso contínuo cresce e o investimento faz mais sentido."
+        ]
+      }
+    ],
+    "recommendedProductSlugs": ["air-fryer-family-chef-55l", "cafeteira-programavel-morning-brew"]
+  },
+  {
+    "title": "O que analisar antes de comprar uma cama para pet",
+    "slug": "o-que-analisar-antes-de-comprar-cama-para-pet",
+    "category": "Pets",
+    "excerpt": "Tamanho, enchimento, lavabilidade e clima da casa fazem diferença no conforto do animal.",
+    "image": "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=1200&q=80",
+    "seoTitle": "Como escolher cama para pet com mais conforto",
+    "seoDescription": "Entenda os critérios mais importantes para escolher uma cama confortável e prática para seu pet.",
+    "publishedAt": "2026-04-18",
+    "faq": [
+      {
+        "question": "Cama com borda alta é melhor?",
+        "answer": "Para muitos pets, sim. As bordas criam sensação de abrigo e ajudam no relaxamento."
+      },
+      {
+        "question": "Qual material é mais fácil de limpar?",
+        "answer": "Tecidos removíveis ou laváveis na máquina tendem a facilitar bastante a manutenção."
+      }
+    ],
+    "sections": [
+      {
+        "heading": "Conforto começa no tamanho certo",
+        "content": [
+          "O pet precisa conseguir se deitar esticado e mudar de posição sem ficar espremido.",
+          "Também é útil observar se ele prefere superfícies mais macias ou mais firmes."
+        ]
+      },
+      {
+        "heading": "Lavagem faz parte da decisão",
+        "content": [
+          "Se a rotina for corrida, tecidos fáceis de higienizar costumam ser muito mais vantajosos no longo prazo.",
+          "Isso ajuda na conservação do produto e no conforto geral do ambiente."
+        ]
+      }
+    ],
+    "recommendedProductSlugs": ["cama-pet-nuvem-premium"]
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Tecnologia",
+    "slug": "tecnologia",
+    "description": "Acessórios, gadgets e soluções práticas para produtividade, estudo e entretenimento.",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "name": "Casa e Cozinha",
+    "slug": "casa-e-cozinha",
+    "description": "Itens que facilitam a rotina da casa com mais organização, conforto e eficiência.",
+    "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "name": "Beleza",
+    "slug": "beleza",
+    "description": "Produtos de autocuidado para rotina diária, bem-estar e beleza prática.",
+    "image": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "name": "Livros",
+    "slug": "livros",
+    "description": "Sugestões de leitura para carreira, finanças, hábitos e desenvolvimento pessoal.",
+    "image": "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "name": "Ferramentas",
+    "slug": "ferramentas",
+    "description": "Equipamentos e kits úteis para manutenção, reparos e projetos domésticos.",
+    "image": "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "name": "Pets",
+    "slug": "pets",
+    "description": "Produtos pensados para conforto, higiene e diversão de cães e gatos.",
+    "image": "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "name": "Eletrônicos",
+    "slug": "eletronicos",
+    "description": "Dispositivos populares para entretenimento, áudio, vídeo e conectividade.",
+    "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80"
+  },
+  {
+    "name": "Ofertas do Dia",
+    "slug": "ofertas-do-dia",
+    "description": "Seleção editorial de ofertas para quem busca oportunidade sem abrir mão da qualidade.",
+    "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80"
+  }
+]

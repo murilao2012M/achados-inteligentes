@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-mist text-ink antialiased;
+  background-image:
+    radial-gradient(circle at 8% 10%, rgba(35, 87, 198, 0.14), transparent 20%),
+    radial-gradient(circle at 92% 8%, rgba(245, 158, 11, 0.14), transparent 18%),
+    radial-gradient(circle at 50% 36%, rgba(35, 87, 198, 0.05), transparent 28%),
+    linear-gradient(180deg, #fdfefe 0%, #f3f8ff 46%, #eef5ff 100%);
+  background-attachment: fixed;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  @apply transition-all duration-200;
+}
+
+.container-shell {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.section-space {
+  @apply py-14 sm:py-16 lg:py-20;
+}
+
+.deferred-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 900px;
+}
+
+.site-canvas {
+  background-image:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.85), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(35, 87, 198, 0.08), transparent 22%),
+    linear-gradient(rgba(35, 87, 198, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(35, 87, 198, 0.04) 1px, transparent 1px);
+  background-size:
+    auto,
+    auto,
+    34px 34px,
+    34px 34px;
+  background-position:
+    0 0,
+    100% 100%,
+    center top,
+    center top;
+}
+
+.card-surface {
+  @apply rounded-[1.85rem] border border-brand-100/80 bg-white shadow-soft;
+}
+
+.admin-panel-shell {
+  @apply rounded-[2rem] border border-slate-200 bg-white shadow-soft;
+}
+
+.eyebrow {
+  @apply inline-flex rounded-full bg-brand-100 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-800;
+}
+
+.editorial-frame {
+  @apply overflow-hidden rounded-[2rem] border border-brand-100 bg-white;
+  box-shadow: 0 24px 60px rgba(7, 26, 58, 0.08);
+}
+
+.mesh-panel {
+  background:
+    radial-gradient(circle at top left, rgba(245, 158, 11, 0.16), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(35, 87, 198, 0.15), transparent 30%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(242, 247, 255, 0.98));
+}
+
+.fine-grid {
+  background-image:
+    linear-gradient(rgba(21, 33, 54, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21, 33, 54, 0.05) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+.admin-grid-bg {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.cta-row-mobile {
+  @apply flex flex-col gap-3 sm:flex-row sm:flex-wrap;
+}
+
+.shell-panel {
+  @apply rounded-[2rem] border border-brand-100/80 bg-white shadow-soft;
+}
+
+.section-label {
+  @apply inline-flex items-center gap-2 rounded-full border border-brand-100 bg-brand-50/80 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-800;
+}
+
+.section-heading {
+  @apply mt-3 font-display text-[2rem] leading-[1.02] tracking-tight text-ink sm:text-[2.35rem] lg:text-[2.8rem];
+}
+
+.section-copy {
+  @apply mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base;
+}
+
+.prose-affiliate p {
+  @apply mb-4 leading-7 text-slate-600;
+}
+
+.prose-affiliate h2 {
+  @apply mb-4 mt-10 font-display text-2xl text-ink;
+}
+
+.prose-affiliate ul {
+  @apply mb-6 list-disc pl-5 text-slate-600;
+}
