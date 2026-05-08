@@ -73,3 +73,17 @@ export type BlogPost = {
   createdAt?: string;
   updatedAt?: string;
 };
+
+export type SiteSettings = {
+  id?: string;
+  contactEmail: string;
+  phone: string;
+  address: string;
+  instagramUrl: string;
+  youtubeUrl: string;
+  newsletterEnabled: boolean;
+  newsletterTitle: string;
+  newsletterDescription: string;
+  createdAt?: string;
+  updatedAt?: string;
+};

@@ -8,9 +8,9 @@ export const siteConfig = {
     "Achados Inteligentes | O Portal de Vendas com os Melhores Achados Amazon",
   defaultDescription:
     "Descubra produtos recomendados com curadoria editorial, comparativos, reviews honestos e links de afiliado para comprar na Amazon com mais confiança.",
-  contactEmail: "contato@achadosinteligentes.com",
-  phone: "+55 (12) 99724-6332",
-  address: "São Paulo, Brasil",
+  contactEmail: "",
+  phone: "",
+  address: "Brasil",
   menu: [
     { label: "Início", href: "/" },
     { label: "Categorias", href: "/categorias" },
@@ -25,4 +25,16 @@ export const siteConfig = {
       process.env.NEXT_PUBLIC_GSC_VERIFICATION ?? "",
     metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID ?? ""
   }
+};
+
+export const defaultSiteSettings = {
+  contactEmail: siteConfig.contactEmail,
+  phone: siteConfig.phone,
+  address: siteConfig.address,
+  instagramUrl: "",
+  youtubeUrl: "",
+  newsletterEnabled: false,
+  newsletterTitle: "Receba as melhores recomendações no seu e-mail",
+  newsletterDescription:
+    "Conteúdo novo, comparativos e oportunidades comerciais para você acompanhar o site com mais facilidade."
 };

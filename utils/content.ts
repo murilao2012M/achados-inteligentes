@@ -9,7 +9,8 @@ import {
   BlogSection,
   Category,
   Comparison,
-  Product
+  Product,
+  SiteSettings
 } from "@/utils/types";
 import {
   createSupabaseAdminClient,
@@ -17,6 +18,7 @@ import {
   createSupabaseServerClient
 } from "@/utils/supabase/server";
 import { hasSupabaseConfig } from "@/utils/supabase/env";
+import { defaultSiteSettings } from "@/utils/site";
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -170,6 +172,37 @@ function normalizeComparison(comparison: Record<string, unknown>): Comparison {
   };
 }
 
+function normalizeSiteSettings(settings: Record<string, unknown>): SiteSettings {
+  return {
+    id: String(settings.id ?? "main"),
+    contactEmail: String(
+      settings.contact_email ??
+        settings.contactEmail ??
+        defaultSiteSettings.contactEmail
+    ),
+    phone: String(settings.phone ?? defaultSiteSettings.phone),
+    address: String(settings.address ?? defaultSiteSettings.address),
+    instagramUrl: String(settings.instagram_url ?? settings.instagramUrl ?? ""),
+    youtubeUrl: String(settings.youtube_url ?? settings.youtubeUrl ?? ""),
+    newsletterEnabled:
+      settings.newsletter_enabled === undefined
+        ? defaultSiteSettings.newsletterEnabled
+        : Boolean(settings.newsletter_enabled ?? settings.newsletterEnabled),
+    newsletterTitle: String(
+      settings.newsletter_title ??
+        settings.newsletterTitle ??
+        defaultSiteSettings.newsletterTitle
+    ),
+    newsletterDescription: String(
+      settings.newsletter_description ??
+        settings.newsletterDescription ??
+        defaultSiteSettings.newsletterDescription
+    ),
+    createdAt: String(settings.created_at ?? settings.createdAt ?? ""),
+    updatedAt: String(settings.updated_at ?? settings.updatedAt ?? "")
+  };
+}
+
 async function fetchSupabaseCategories(options?: { live?: boolean }) {
   if (options?.live) {
     noStore();
@@ -252,6 +285,24 @@ async function fetchSupabaseComparisons(options?: { live?: boolean }) {
   return data.map((comparison) => normalizeComparison(comparison));
 }
 
+async function fetchSupabaseSiteSettings(options?: { live?: boolean }) {
+  if (options?.live) {
+    noStore();
+  }
+  const client = createSupabasePublicClient();
+  if (!client) return null;
+
+  const { data, error } = await client
+    .from("site_settings")
+    .select("*")
+    .eq("id", "main")
+    .maybeSingle();
+
+  if (error) return null;
+  if (!data) return normalizeSiteSettings(defaultSiteSettings);
+  return normalizeSiteSettings(data);
+}
+
 const getCachedCategories = unstable_cache(
   async () =>
     resolvePublicSource(
@@ -290,6 +341,14 @@ const getCachedComparisons = unstable_cache(
     ),
   ["public-comparisons"],
   { revalidate: 300, tags: ["comparisons"] }
+);
+
+const getCachedSiteSettings = unstable_cache(
+  async () =>
+    (await fetchSupabaseSiteSettings()) ??
+    normalizeSiteSettings(defaultSiteSettings),
+  ["public-site-settings"],
+  { revalidate: 300, tags: ["site-settings"] }
 );
 
 export async function getCategories(): Promise<Category[]> {
@@ -404,6 +463,25 @@ export async function getComparisonsAdmin(): Promise<Comparison[]> {
 export async function getComparisonBySlug(slug: string) {
   return (await getComparisons()).find(
     (comparison) => comparison.slug === slug
+  );
+}
+
+export async function getSiteSettings(): Promise<SiteSettings> {
+  if (!ensurePublicContentConfig()) {
+    return normalizeSiteSettings(defaultSiteSettings);
+  }
+
+  return getCachedSiteSettings();
+}
+
+export async function getSiteSettingsAdmin(): Promise<SiteSettings> {
+  if (!hasSupabaseConfig()) {
+    return normalizeSiteSettings(defaultSiteSettings);
+  }
+
+  return (
+    (await fetchSupabaseSiteSettings({ live: true })) ??
+    normalizeSiteSettings(defaultSiteSettings)
   );
 }
 

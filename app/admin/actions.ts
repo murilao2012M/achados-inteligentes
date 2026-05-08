@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 import { createSupabaseAdminClient, createSupabaseServerClient } from "@/utils/supabase/server";
 import { requireAdminUser } from "@/utils/admin";
@@ -155,8 +155,12 @@ export async function saveCategoryAction(formData: FormData) {
     await client.from("categories").insert(payload);
   }
 
+  revalidateTag("categories");
+  revalidateTag("products");
   revalidatePath("/admin/categorias");
+  revalidatePath("/");
   revalidatePath("/categorias");
+  revalidatePath("/categorias/[slug]", "page");
   redirect("/admin/categorias");
 }
 
@@ -164,8 +168,12 @@ export async function deleteCategoryAction(formData: FormData) {
   const client = await requireServices();
   const id = String(formData.get("id") ?? "");
   await client.from("categories").delete().eq("id", id);
+  revalidateTag("categories");
+  revalidateTag("products");
   revalidatePath("/admin/categorias");
+  revalidatePath("/");
   revalidatePath("/categorias");
+  revalidatePath("/categorias/[slug]", "page");
 }
 
 export async function saveProductAction(formData: FormData) {
@@ -215,9 +223,13 @@ export async function saveProductAction(formData: FormData) {
     await client.from("products").insert(payload);
   }
 
+  revalidateTag("products");
+  revalidateTag("categories");
   revalidatePath("/admin/produtos");
   revalidatePath("/");
   revalidatePath("/produtos");
+  revalidatePath("/produtos/[slug]", "page");
+  revalidatePath("/categorias/[slug]", "page");
   redirect("/admin/produtos");
 }
 
@@ -225,8 +237,12 @@ export async function deleteProductAction(formData: FormData) {
   const client = await requireServices();
   const id = String(formData.get("id") ?? "");
   await client.from("products").delete().eq("id", id);
+  revalidateTag("products");
+  revalidateTag("categories");
   revalidatePath("/admin/produtos");
   revalidatePath("/");
+  revalidatePath("/produtos/[slug]", "page");
+  revalidatePath("/categorias/[slug]", "page");
 }
 
 export async function savePostAction(formData: FormData) {
@@ -263,8 +279,11 @@ export async function savePostAction(formData: FormData) {
     await client.from("posts").insert(payload);
   }
 
+  revalidateTag("posts");
   revalidatePath("/admin/posts");
   revalidatePath("/blog");
+  revalidatePath("/blog/[slug]", "page");
+  revalidatePath("/");
   redirect("/admin/posts");
 }
 
@@ -272,8 +291,11 @@ export async function deletePostAction(formData: FormData) {
   const client = await requireServices();
   const id = String(formData.get("id") ?? "");
   await client.from("posts").delete().eq("id", id);
+  revalidateTag("posts");
   revalidatePath("/admin/posts");
   revalidatePath("/blog");
+  revalidatePath("/blog/[slug]", "page");
+  revalidatePath("/");
 }
 
 export async function saveComparisonAction(formData: FormData) {
@@ -295,8 +317,11 @@ export async function saveComparisonAction(formData: FormData) {
     await client.from("comparisons").insert(payload);
   }
 
+  revalidateTag("comparisons");
   revalidatePath("/admin/comparativos");
   revalidatePath("/comparativos");
+  revalidatePath("/comparativos/[slug]", "page");
+  revalidatePath("/");
   redirect("/admin/comparativos");
 }
 
@@ -304,6 +329,33 @@ export async function deleteComparisonAction(formData: FormData) {
   const client = await requireServices();
   const id = String(formData.get("id") ?? "");
   await client.from("comparisons").delete().eq("id", id);
+  revalidateTag("comparisons");
   revalidatePath("/admin/comparativos");
   revalidatePath("/comparativos");
+  revalidatePath("/comparativos/[slug]", "page");
+  revalidatePath("/");
+}
+
+export async function saveSiteSettingsAction(formData: FormData) {
+  const client = await requireServices();
+
+  const payload = {
+    id: "main",
+    contact_email: String(formData.get("contactEmail") ?? ""),
+    phone: String(formData.get("phone") ?? ""),
+    address: String(formData.get("address") ?? ""),
+    instagram_url: String(formData.get("instagramUrl") ?? ""),
+    youtube_url: String(formData.get("youtubeUrl") ?? ""),
+    newsletter_enabled: formData.get("newsletterEnabled") === "on",
+    newsletter_title: String(formData.get("newsletterTitle") ?? ""),
+    newsletter_description: String(formData.get("newsletterDescription") ?? "")
+  };
+
+  await client.from("site_settings").upsert(payload, { onConflict: "id" });
+
+  revalidateTag("site-settings");
+  revalidatePath("/admin/configuracoes");
+  revalidatePath("/");
+  revalidatePath("/contato");
+  redirect("/admin/configuracoes");
 }

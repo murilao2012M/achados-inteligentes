@@ -72,6 +72,20 @@ create table if not exists public.comparisons (
   updated_at timestamptz not null default now()
 );
 
+create table if not exists public.site_settings (
+  id text primary key default 'main',
+  contact_email text not null default '',
+  phone text not null default '',
+  address text not null default 'Brasil',
+  instagram_url text not null default '',
+  youtube_url text not null default '',
+  newsletter_enabled boolean not null default false,
+  newsletter_title text not null default '',
+  newsletter_description text not null default '',
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
 create or replace function public.set_updated_at()
 returns trigger as $$
 begin
@@ -100,10 +114,16 @@ create trigger set_comparisons_updated_at
 before update on public.comparisons
 for each row execute procedure public.set_updated_at();
 
+drop trigger if exists set_site_settings_updated_at on public.site_settings;
+create trigger set_site_settings_updated_at
+before update on public.site_settings
+for each row execute procedure public.set_updated_at();
+
 alter table public.categories enable row level security;
 alter table public.products enable row level security;
 alter table public.posts enable row level security;
 alter table public.comparisons enable row level security;
+alter table public.site_settings enable row level security;
 
 drop policy if exists "public can read categories" on public.categories;
 create policy "public can read categories"
@@ -124,6 +144,11 @@ drop policy if exists "public can read published comparisons" on public.comparis
 create policy "public can read published comparisons"
 on public.comparisons for select
 using (published = true);
+
+drop policy if exists "public can read site settings" on public.site_settings;
+create policy "public can read site settings"
+on public.site_settings for select
+using (true);
 
 insert into storage.buckets (id, name, public)
 values ('site-assets', 'site-assets', true)

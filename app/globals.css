@@ -13,10 +13,10 @@ html {
 body {
   @apply bg-mist text-ink antialiased;
   background-image:
-    radial-gradient(circle at 8% 10%, rgba(35, 87, 198, 0.14), transparent 20%),
-    radial-gradient(circle at 92% 8%, rgba(245, 158, 11, 0.14), transparent 18%),
-    radial-gradient(circle at 50% 36%, rgba(35, 87, 198, 0.05), transparent 28%),
-    linear-gradient(180deg, #fdfefe 0%, #f3f8ff 46%, #eef5ff 100%);
+    radial-gradient(circle at 8% 12%, rgba(35, 87, 198, 0.14), transparent 18%),
+    radial-gradient(circle at 92% 10%, rgba(245, 158, 11, 0.12), transparent 16%),
+    radial-gradient(circle at 88% 24%, rgba(35, 87, 198, 0.08), transparent 26%),
+    linear-gradient(180deg, #ffffff 0%, #f7faff 45%, #eff5ff 100%);
   background-attachment: fixed;
 }
 
@@ -43,24 +43,27 @@ textarea {
 
 .site-canvas {
   background-image:
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.85), transparent 24%),
-    radial-gradient(circle at bottom right, rgba(35, 87, 198, 0.08), transparent 22%),
-    linear-gradient(rgba(35, 87, 198, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(35, 87, 198, 0.04) 1px, transparent 1px);
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.9), transparent 24%),
+    radial-gradient(circle at 100% 14%, rgba(35, 87, 198, 0.08), transparent 24%),
+    radial-gradient(circle at 92% 28%, rgba(35, 87, 198, 0.06), transparent 22%),
+    linear-gradient(rgba(35, 87, 198, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(35, 87, 198, 0.035) 1px, transparent 1px);
   background-size:
+    auto,
     auto,
     auto,
     34px 34px,
     34px 34px;
   background-position:
     0 0,
-    100% 100%,
+    100% 0,
+    100% 26%,
     center top,
     center top;
 }
 
 .card-surface {
-  @apply rounded-[1.85rem] border border-brand-100/80 bg-white shadow-soft;
+  @apply rounded-[1.85rem] border border-brand-100/90 bg-white shadow-soft;
 }
 
 .admin-panel-shell {
@@ -106,7 +109,7 @@ textarea {
 }
 
 .section-label {
-  @apply inline-flex items-center gap-2 rounded-full border border-brand-100 bg-brand-50/80 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-800;
+  @apply inline-flex items-center gap-2 rounded-full border border-brand-100 bg-brand-50/80 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-700;
 }
 
 .section-heading {
@@ -127,4 +130,39 @@ textarea {
 
 .prose-affiliate ul {
   @apply mb-6 list-disc pl-5 text-slate-600;
+}
+
+.nav-shell {
+  @apply rounded-[1.9rem] border border-brand-100/80 bg-white/95 shadow-[0_18px_45px_rgba(7,26,58,0.08)] backdrop-blur;
+}
+
+.primary-cta {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent-500 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-amber-200/80 hover:bg-accent-600;
+}
+
+.secondary-cta {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-brand-200 bg-white px-6 py-3.5 text-sm font-bold text-ink hover:bg-brand-50;
+}
+
+.mini-chip {
+  @apply rounded-full border border-brand-100 bg-white px-4 py-2 text-xs font-semibold text-slate-600;
+}
+
+.dashboard-panel {
+  @apply rounded-[2rem] border border-brand-100/90 bg-white p-5 shadow-[0_24px_80px_rgba(7,26,58,0.1)] sm:p-6;
+}
+
+.feature-box {
+  @apply rounded-[1.45rem] border border-brand-100/80 bg-white p-5 shadow-[0_14px_34px_rgba(7,26,58,0.05)];
+}
+
+.soft-link {
+  @apply inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:text-brand-900;
+}
+
+.footer-pill {
+  @apply inline-flex items-center rounded-full px-3 py-1.5 text-xs;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.9);
 }

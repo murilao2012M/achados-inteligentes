@@ -9,11 +9,9 @@ export function FeaturedProducts({ products }: { products: Product[] }) {
       <div className="container-shell">
         <div className="mb-6 flex items-end justify-between gap-4">
           <div>
-            <span className="section-label">
-              <Star className="h-3.5 w-3.5" />
+            <h2 className="font-display text-[2.1rem] leading-tight text-ink sm:text-[2.5rem]">
               Produtos em destaque
-            </span>
-            <h2 className="section-heading">Produtos em destaque</h2>
+            </h2>
           </div>
           <Link
             href="/comparativos"

@@ -1,54 +1,49 @@
 import Link from "next/link";
-import { ArrowUpRight, Mail, ShieldCheck } from "lucide-react";
+import { Instagram, Mail, ShieldCheck, Youtube } from "lucide-react";
 import { BrandMark } from "@/components/BrandMark";
+import { getCategories, getSiteSettings } from "@/utils/content";
 import { siteConfig } from "@/utils/site";
 
-export function Footer() {
+export async function Footer() {
   const currentYear = new Date().getFullYear();
+  const categories = (await getCategories()).slice(0, 6);
+  const settings = await getSiteSettings();
 
   return (
-    <footer className="bg-[#071A3A] py-16 text-slate-200">
+    <footer className="bg-brand-900 py-16 text-slate-200">
       <div className="container-shell">
-        <div className="mb-10 overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(35,87,198,0.38),transparent_32%),radial-gradient(circle_at_right,rgba(245,158,11,0.16),transparent_30%),rgba(255,255,255,0.03)] p-6 sm:p-8">
-          <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-end">
-            <div className="space-y-4">
-              <BrandMark light />
-              <h2 className="max-w-2xl font-display text-3xl text-white sm:text-4xl">
-                Recomendações de produtos para ajudar você a comparar melhor
-                antes de comprar.
-              </h2>
-              <p className="max-w-2xl text-sm leading-7 text-slate-300">
-                Aqui você encontra comparativos, listas dos melhores produtos,
-                reviews e guias de compra para fazer escolhas mais seguras e
-                práticas na Amazon.
-              </p>
-            </div>
-            <div className="rounded-[1.6rem] border border-white/10 bg-black/10 p-6 backdrop-blur">
-              <p className="text-xs font-semibold uppercase tracking-[0.26em] text-brand-100">
-                Aviso de afiliado
-              </p>
-              <p className="mt-3 text-sm leading-7 text-slate-200">
-                Como Associado Amazon, este site pode receber comissão por
-                compras qualificadas realizadas por meio dos links publicados.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
-          <div className="space-y-4">
-            <p className="max-w-md text-sm leading-6 text-slate-300">
-              Conteúdo feito para facilitar a pesquisa de produtos nas
-              categorias mais procuradas, com foco em praticidade, comparação e
-              confiança na hora da compra.
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr_1fr_1fr_1fr]">
+          <div className="space-y-5">
+            <BrandMark light />
+            <p className="max-w-sm text-sm leading-7 text-slate-300">
+              Seu guia confiável para encontrar os melhores produtos da Amazon com
+              comparativos, análises e recomendações objetivas.
             </p>
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.2em] text-slate-300">
-              <ShieldCheck className="h-4 w-4" />
-              Transparência nos links
-            </div>
-            <div className="inline-flex items-center gap-2 text-sm text-slate-300">
-              <Mail className="h-4 w-4 text-brand-200" />
-              {siteConfig.contactEmail}
+            <div className="flex items-center gap-3 text-slate-300">
+              {settings.instagramUrl ? (
+                <Link
+                  href={settings.instagramUrl}
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/12 bg-white/5"
+                >
+                  <Instagram className="h-4 w-4" />
+                </Link>
+              ) : null}
+              {settings.youtubeUrl ? (
+                <Link
+                  href={settings.youtubeUrl}
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/12 bg-white/5"
+                >
+                  <Youtube className="h-4 w-4" />
+                </Link>
+              ) : null}
+              {settings.contactEmail ? (
+                <Link
+                  href={`mailto:${settings.contactEmail}`}
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/12 bg-white/5"
+                >
+                  <Mail className="h-4 w-4" />
+                </Link>
+              ) : null}
             </div>
           </div>
 
@@ -56,37 +51,12 @@ export function Footer() {
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
               Navegação
             </p>
-            <div className="flex flex-col gap-3 text-sm">
+            <div className="flex flex-col gap-3 text-sm text-slate-300">
               {siteConfig.menu.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="inline-flex items-center gap-2 hover:text-white"
-                >
+                <Link key={item.href} href={item.href} className="hover:text-white">
                   {item.label}
-                  <ArrowUpRight className="h-3.5 w-3.5" />
                 </Link>
               ))}
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
-              Categorias
-            </p>
-            <div className="flex flex-col gap-3 text-sm text-slate-300">
-              <Link href="/categorias/tecnologia" className="hover:text-white">
-                Tecnologia
-              </Link>
-              <Link href="/categorias/casa-e-cozinha" className="hover:text-white">
-                Casa e Cozinha
-              </Link>
-              <Link href="/categorias/eletronicos" className="hover:text-white">
-                Eletrônicos
-              </Link>
-              <Link href="/categorias/beleza" className="hover:text-white">
-                Beleza
-              </Link>
             </div>
           </div>
 
@@ -102,23 +72,50 @@ export function Footer() {
                 Política de Privacidade
               </Link>
               <Link href="/sobre" className="hover:text-white">
-                Sobre o site
+                Sobre
               </Link>
               <Link href="/contato" className="hover:text-white">
                 Contato
               </Link>
             </div>
           </div>
+
+          <div className="space-y-4">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
+              Categorias populares
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {categories.map((category) => (
+                <Link
+                  key={category.slug}
+                  href={`/categorias/${category.slug}`}
+                  className="footer-pill hover:bg-white/12"
+                >
+                  {category.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
+              Aviso de afiliado
+            </p>
+            <div className="rounded-[1.4rem] border border-white/10 bg-white/5 p-4 text-sm leading-7 text-slate-300">
+              <p className="inline-flex items-center gap-2 font-semibold text-white">
+                <ShieldCheck className="h-4 w-4 text-brand-100" />
+                Transparência nos links
+              </p>
+              <p className="mt-2">
+                Como Associado Amazon, posso receber comissões por compras
+                qualificadas realizadas através dos links deste site.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-slate-400 md:flex-row md:items-center md:justify-between">
-          <p className="uppercase tracking-[0.18em]">
-            {siteConfig.name} • produtos recomendados, comparativos e conteúdos
-            para comprar melhor.
-          </p>
-          <p>
-            © {currentYear} {siteConfig.name}. Todos os direitos reservados.
-          </p>
+        <div className="mt-10 border-t border-white/10 pt-6 text-center text-xs text-slate-400">
+          © {currentYear} {siteConfig.name}. Todos os direitos reservados.
         </div>
       </div>
     </footer>

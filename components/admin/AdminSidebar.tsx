@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   BookOpenText,
+  Cog,
   FolderKanban,
   LayoutDashboard,
   Package,
@@ -17,7 +18,8 @@ const links = [
   { href: "/admin/categorias", label: "Categorias", icon: FolderKanban },
   { href: "/admin/produtos", label: "Produtos", icon: Package },
   { href: "/admin/posts", label: "Posts", icon: BookOpenText },
-  { href: "/admin/comparativos", label: "Comparativos", icon: Scale }
+  { href: "/admin/comparativos", label: "Comparativos", icon: Scale },
+  { href: "/admin/configuracoes", label: "Configurações", icon: Cog }
 ];
 
 export function AdminSidebar() {
